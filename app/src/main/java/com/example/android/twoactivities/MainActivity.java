@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private final ArrayList<TextView> items = new ArrayList();
     private static final String STRING_ARRAY_KEY = "com.example.android.twoactivities.STRINGS";
     private static final String POSITION_KEY = "com.example.android.twoactivities.Position";
+    private EditText mEditTextLocation;
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -65,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         items.add(textItem8);
         items.add(textItem9);
         items.add(textItem10);
+
+        mEditTextLocation = findViewById(R.id.find_a_store_edittext);
     }
 
     public void launchSecondActivity(View view) {
@@ -88,4 +94,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public void openMap(View view) {
+        String location = mEditTextLocation.getText().toString();
+        Uri addressUri = Uri.parse("geo:0,0?q="+location);
+        Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Log.d("TwoActivities", "Can't handle this intent!");
+        }
+    }
 }

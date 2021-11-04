@@ -98,5 +98,19 @@
             android:layout_gravity="center_horizontal"
             android:onClick="launchSecondActivity"
             android:text="@string/add_button" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:hint="@string/enter_a_store_name_hint" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="openMap"
+            android:text="@string/find_a_store_button" />
     </LinearLayout>
 </ScrollView>

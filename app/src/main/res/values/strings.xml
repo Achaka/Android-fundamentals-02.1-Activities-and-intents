@@ -17,5 +17,7 @@
     <string name="button8">Cheese</string>
     <string name="button9">Beef</string>
     <string name="button10">Yoghurt</string>
+    <string name="find_a_store_button">Find a store</string>
+    <string name="enter_a_store_name_hint">Enter a store name</string>
 
 </resources>
